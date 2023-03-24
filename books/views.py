@@ -160,6 +160,7 @@ class prolist(ListView):
 
 class proform(CreateView):
     model = MyProfile
+    success_url=reverse_lazy('view')
     fields = ['profile','name','email','phone','mobile','address']
     template_name = 'profile.html'
 
@@ -175,10 +176,10 @@ class proupdate(UpdateView):
 
 def add_to_cart(request, product_id):
     Product = get_object_or_404(Book, pk=product_id)
-    cart_item, created = Cart.objects.get_or_create(
+    cart_item,created = Cart.objects.get_or_create(
         user=request.user,
         product= Product,
-        price=Book.price,
+        price=Product.price,
     )
     if not created:
         cart_item.quantity += 1

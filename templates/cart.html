@@ -15,11 +15,12 @@
     <tbody>
       {% for cart_item in cart_items %}
         <tr>
-          <td>{{ cart_item.book.title }}</td>
+          <td>{{ cart_item.product }}</td>
           <td>{{ cart_item.quantity }}</td>
-          <td>{{ cart_item.book.price}}</td>
-          <td>{{ cart_item.book.price * cart_item.quantity }}</td>
+          <td>{{ cart_item.price}}</td>
+          <td></td>
           <td>
+            <a href="{% url 'booklist' %}">home</a>
             <a href="{% url 'remove_from_cart' cart_item.id %}">Remove</a>
           </td>
         </tr>
