@@ -24,9 +24,11 @@
                 {% endif %}<br>
                 <a href="{% url 'detail' each.id %}" class="btn btn-primary">View</a>
             </div>
+            <a href="{% url 'cart/add' each.id %}" class="btn btn-primary">add to cart</a>
         </div>
     </div>
     {% endfor %}
+
 </div>
 
 {% endblock content %}

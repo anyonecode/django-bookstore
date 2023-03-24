@@ -174,10 +174,10 @@ class proupdate(UpdateView):
     template_name = 'profile.html'
 
 def add_to_cart(request, product_id):
-    product = get_object_or_404(Book, pk=product_id)
+    Product = get_object_or_404(Book, pk=product_id)
     cart_item, created = Cart.objects.get_or_create(
         user=request.user,
-        product=Book.title,
+        product= Product,
         price=Book.price,
     )
     if not created:
