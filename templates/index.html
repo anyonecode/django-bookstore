@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/adcdf23364.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>home</title>
+</head>
+<body>
+        {% csrf_token %}
+          
+    </div>
+    <center>
+    <h1>Welcome All</h1>
+    <h2>FIND THE PERFECT <span style='color: rgb(255, 85, 0);'>BOOKS</span></h2>
+    <div class="center">
+        <div class="link"><a href="{% url 'signup'  %}">Login<i class="fa-solid fa-right-long"></i></a></div> 
+    </div>
+
+    </center>
+</body>
+</html>

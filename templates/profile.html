@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>profile</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+  <div class="form">
+    <div class="image">
+    <img src="{% static 'media/profile.jpg' %}" alt="">
+  </div>
+<div class="form-center">
+  {% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="save">
+      <input type="submit" value="Save" id='save'>
+    </div>
+
+</div>
+  </div>
+  {% endblock content %}
+</body>
+</html>

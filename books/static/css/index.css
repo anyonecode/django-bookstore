@@ -1,0 +1,39 @@
+body{
+    background: url('/static/media/job.jpg') no-repeat;
+    background-size: cover;
+    margin-top: 200px;
+}
+h1{
+    font-size: 30px;
+    margin-top: 300px;
+    text-transform: uppercase;
+    color: white;
+}
+h2{
+    text-transform: capitalize;
+    font-size: 60px;
+    margin-top: 20px;
+    color: white;
+}
+.center{
+    margin-top: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100px;
+    padding: 8px;
+    background-color: rgb(255, 85, 0);
+    font-size: 13px;
+    border-radius: 5px;
+    
+}
+.center .link a{
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+.center .link i{
+    margin-left: 5px;
+}
+.center a:hover{
+    color: #000;
+}
