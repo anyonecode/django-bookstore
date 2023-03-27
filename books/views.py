@@ -23,6 +23,8 @@ from django.contrib import messages
 
 def index(request):
     return render(request,'index.html')
+def payment(request):
+    return render(request,'payment.html')
 def signup(request):
 
     if request.method =='POST':
@@ -104,7 +106,7 @@ def signin(request):
         if user is not None:
             login(request,user)
             fname = user.username
-            return redirect('profile.html')
+            return redirect('booklist')
 
         else:
             return redirect('signin')
@@ -180,6 +182,7 @@ def add_to_cart(request, product_id):
         user=request.user,
         product= Product,
         price=Product.price,
+        image_url = Product.image_url,
     )
     if not created:
         cart_item.quantity += 1
