@@ -30,6 +30,7 @@
         {% if user.is_authenticated %}
         <a class="dropdown-item" href="{% url 'signout' %}">Log Out</a>
         <a class="dropdown-item" href="{% url 'cart'%}">Cart</a>
+        <a class="dropdown-item" href="{% url 'fav'%}">favorite</a>
         <a class="dropdown-item" href="{% url 'view'%}">profile</a>
         {% else %}
         <a class="dropdown-item text-secondary" href="{% url 'signin' %}">Log In</a>

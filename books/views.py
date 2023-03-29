@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView,UpdateView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin 
-from .models import Book, Order,MyProfile,Cart
+from .models import Book, Order,MyProfile,Cart,favorite
 from django.db.models import Q # for search method
 from django.http import JsonResponse
 
@@ -203,3 +203,31 @@ def cart(request):
     cart_items = Cart.objects.filter(user=request.user)
     total = sum(item.price * item.quantity for item in cart_items)
     return render(request, 'cart.html', {'cart_items': cart_items, 'total': total})
+
+
+
+def add_fav(request, product_id):
+    Product = get_object_or_404(Book, pk=product_id)
+    favorite_item,created = favorite.objects.get_or_create(
+        user=request.user,
+        product= Product,
+        image_url = Product.image_url,
+    )
+    if not created:
+        favorite_item.quantity += 1
+        favorite_item.save()
+    return redirect('fav')
+
+
+def remove_from_fav(request, fav_id):
+    favorite_item = get_object_or_404(favorite, pk=fav_id, user=request.user)
+    if favorite_item.quantity == 0:
+        favorite_item.quantity -= 1
+        favorite_item.save()
+    else:
+        favorite_item.delete()
+    return redirect('fav')
+
+def fav(request):
+    favorite_items = favorite.objects.filter(user=request.user)
+    return render(request, 'fav.html', {'favorite_items': favorite_items})

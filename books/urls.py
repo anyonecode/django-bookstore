@@ -22,4 +22,7 @@ urlpatterns = [
     path('cart/add/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('cart/remove/<int:cart_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('cart/', views.cart, name='cart'),
+    path('fav/add/<int:product_id>/', views.add_fav, name='add_to_fav'),
+    path('fav/remove/<int:fav_id>/', views.remove_from_fav, name='remove_from_fav'),
+    path('fav/', views.fav, name='fav'),
 ]

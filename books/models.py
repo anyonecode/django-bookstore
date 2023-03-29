@@ -42,3 +42,9 @@ class Cart(models.Model):
     image_url = models.CharField(max_length = 2083, default=False)
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+
+class favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    image_url = models.CharField(max_length = 2083, default=False)
