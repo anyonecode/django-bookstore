@@ -33,8 +33,7 @@ class MyProfile(models.Model):
     phone = models.CharField(max_length=10)
     mobile = models.CharField(max_length=10)
     address = models.CharField(max_length=200)
-    def __str__(self):
-        return self.name
+
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -47,4 +46,6 @@ class favorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Book, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
+    book_available = models.BooleanField(default=False)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.CharField(max_length = 2083, default=False)

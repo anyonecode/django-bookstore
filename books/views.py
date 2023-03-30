@@ -25,6 +25,8 @@ def index(request):
     return render(request,'index.html')
 def payment(request):
     return render(request,'payment.html')
+def sucess(request):
+    return render(request,'successfull.html')
 def signup(request):
 
     if request.method =='POST':
@@ -212,6 +214,9 @@ def add_fav(request, product_id):
         user=request.user,
         product= Product,
         image_url = Product.image_url,
+        price=Product.price,
+        book_available=Product.book_available
+
     )
     if not created:
         favorite_item.quantity += 1

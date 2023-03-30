@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
+  <a href="{% url 'view'%}"><button class="button button2">All ready have Profile</button></a>
   <div class="form">
     <div class="image">
     <img src="{% static 'media/profile.jpg' %}" alt="">
@@ -22,9 +23,10 @@
     <div class="save">
       <input type="submit" value="Save" id='save'>
     </div>
-
 </div>
   </div>
+  
+ 
   {% endblock content %}
 </body>
 </html>
