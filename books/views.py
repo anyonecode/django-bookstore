@@ -116,7 +116,7 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    return redirect('signin')
+    return redirect('home')
 
 class BooksListView(ListView,LoginRequiredMixin):
     model = Book
