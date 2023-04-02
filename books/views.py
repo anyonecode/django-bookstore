@@ -6,7 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Book, Order,MyProfile,Cart,favorite
 from django.db.models import Q # for search method
 from django.http import JsonResponse
-
 import json
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -119,18 +118,18 @@ def signout(request):
     logout(request)
     return redirect('signin')
 
-class BooksListView(ListView):
+class BooksListView(ListView,LoginRequiredMixin):
     model = Book
     template_name = 'list.html'
 
 
-class BooksDetailView(DetailView):
+class BooksDetailView(DetailView,LoginRequiredMixin):
     model = Book
     template_name = 'detail.html'
     success_url = reverse_lazy('object_list')
 
 
-class SearchResultsListView(ListView):
+class SearchResultsListView(ListView,LoginRequiredMixin):
 	model = Book
 	template_name = 'search_results.html'
 
@@ -155,14 +154,14 @@ def paymentComplete(request):
 	)
 	return JsonResponse('Payment completed!', safe=False)
 
-class prolist(ListView):
+class prolist(ListView,LoginRequiredMixin):
 
     model = MyProfile
     fields = ['name','email','phone','mobile','address']
     context_object_name = 'myprofile'
     template_name = 'view.html'
 
-class proform(CreateView):
+class proform(CreateView,LoginRequiredMixin):
     model = MyProfile
     success_url=reverse_lazy('view')
     fields = ['profile','name','email','phone','mobile','address']
@@ -172,7 +171,7 @@ class proform(CreateView):
         form.instance.user = self.request.user
         return super(proform, self).form_valid(form)
 
-class proupdate(UpdateView):
+class proupdate(UpdateView,LoginRequiredMixin):
     model = MyProfile
     success_url=reverse_lazy('view')
     fields = ['profile','name','email','phone','mobile','address']

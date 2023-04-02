@@ -27,8 +27,14 @@
 
 {% if object.book_available is True %}
 <a href="{% url 'checkout' object.pk %}" class="btn btn-outline-success" role="button">Buy Now</a>
+<a href="{% url 'add_to_cart' object.id %}" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i>add to cart</a>
+<a href="{% url 'add_to_fav' object.id %}"class="btn btn-danger"><i class="fa fa-star"></i>
+  <span>Favourite </span></a>
 {% else %}
 <h4 class="text-danger">Out of Stock !</h4>
+<a href="{% url 'add_to_fav' object.id %}"class="btn btn-danger"><i class="fa fa-star"></i>
+  <span>Favourite</span></a>
+
 {% endif %}
 
 {% endblock content %}

@@ -1,6 +1,7 @@
 body{
-    background: url('/static/media/book41.jpg');
+    background: url('/static/media/book41.jpg') no-repeat ;
     background-size: cover;
+    height: 426px;
     margin-top: 200px;
 }
 h1{
@@ -36,4 +37,24 @@ h2{
 }
 .center a:hover{
     color: #000;
+}
+@media only screen and (max-width: 600px) {
+    body{
+        background: url('/static/media/book41.jpg') no-repeat ;
+        background-size: cover;
+        height: 426px;
+        margin-top: 200px;
+    }
+    h1{
+        font-size: 20px;
+        margin-top: 300px;
+        text-transform: uppercase;
+        color: white;
+    }
+    h2{
+        text-transform: capitalize;
+        font-size: 40px;
+        margin-top: 20px;
+        color: white;
+    }
 }

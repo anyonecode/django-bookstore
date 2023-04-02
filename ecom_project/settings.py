@@ -139,19 +139,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-# It’s often the case that there will be multiple directories
-# with static files within a project so Python brackets [] , 
-# which denote a list 120 , are typically added here to 
-# accommodate future additions.
+
 
 STATICFILES_FINDERS = [
 "django.contrib.staticfiles.finders.FileSystemFinder",
 "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-
-# login settings
-
-
-
-# website url: https://https://ym-djecom.herokuapp.com/
+LOGIN_URL = '/signin/'

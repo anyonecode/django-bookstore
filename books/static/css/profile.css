@@ -70,7 +70,7 @@ button {
         
     }
     .image img{
-        width:400px;
+        width:300px;
         height: 300px;
         margin-left: 10px;
     }
@@ -81,7 +81,7 @@ button {
         margin-left: 25px;
         box-shadow: 2px 5px 10px 2px grey ;
         background-color: rgba(25, 0, 255, 0.43);
-        width: 350px;
+        width: 250px;
         border-radius: 10px;
         padding: 20px 20px 40px 20px;
     }

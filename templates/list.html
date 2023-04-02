@@ -13,36 +13,79 @@
   }
   }
 </style>
+<body style="background-color: #eee;">
+  
 
   <br>
-  <div class="row">
     {% for each in object_list %}
-    <div class="col">
-        <br>
-        <div class="card" style="width: 15rem;">
-            <img src="{{ each.image_url }}" class="card-img-top" alt="..." style="width: 15rem;">
-            <a href="{% url 'add_to_fav' each.id %}"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/></svg> </a>
-            <div class="card-body">
-                <h5 class="card-title">{{ each.title|slice:":25"}} ...</h5>
-                <p class="card-text">${{ each.price|floatformat:2 }}</p>                
-                {% if each.book_available is True %}
-                <li class="text-primary">Available</li>
-                <a href="{% url 'detail' each.id %}" class="btn btn-primary">View</a>
-                <a href="{% url 'add_to_cart' each.id %}" class="btn btn-primary" style=background:white;color:black;>add to cart</a>
-                {% else %}
-                <li class="text-danger">Out of Stock !</li>
-                <a href="{% url 'detail' each.id %}" class="btn btn-primary">View</a>
-                {% endif %}
+
+  <section >
+    <div class="container py-5">
+        <div class="row justify-content-center mb-3">
+          <div class="col-md-12 col-xl-10">
+            <div class="card shadow-0 border rounded-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                    <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                      <a href="{% url 'detail' each.id %}"><img src="{{ each.image_url }}"
+                        class="w-100" /></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-xl-6">
+                    <h5>{{ each.title|slice:":25"}} ...</h5>
+                    <div class="d-flex flex-row">
+                      <div class="text-danger mb-1 me-2">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+                    </div>
+                    <div class="mt-1 mb-0 text-muted small">
+                      <span>About django</span>
+                      <span class="text-primary"> • </span>
+                      <span>Low price</span>
+                      <span class="text-primary"> • </span>
+                      <span>Best Ever<br /></span>
+                    </div>
+                    <p class="text-truncate mb-4 mb-md-0">
+                        {{ each.description }}
+                    </p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                    <div class="d-flex flex-row align-items-center mb-1">
+                      <h4 class="mb-1 me-1">${{ each.price|floatformat:2 }}</h4>
+                    </div>
+                    {% if each.book_available is True %}
+                    <h6 class="text-success">Available</h6>
+                    {% else %}
+                    <h6 class="text-danger">Out of Stock !</h6>
+                    {% endif %}
+                    <div class="d-flex flex-column mt-4">
+                        <a href="{% url 'detail' each.id %}"><button class="btn btn-primary btn-sm" type="button">Details</button></a>
+                        <a href="{% url 'add_to_cart' each.id %}" ><button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                          <i class="fa fa-shopping-cart"></i> Add to Cart
+                          </button></a>
+                          <a href="{% url 'add_to_fav' each.id %}" ><button class="btn btn-outline-danger btn-sm mt-2" type="button">
+                            <i class="fa fa-heart"></i> Add to Favourite
+                          </button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            
+          </div>
         </div>
     </div>
+  </section>
+
     {% endfor %}
+    <script src="//code.tidio.co/umxxtmw1kpaq3zsveo1myuuw090xjbp9.js" async></script>
 
+  </body>
 
-<script>
-</script>
-</div>
 
 {% endblock content %}
 
