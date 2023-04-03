@@ -7,6 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://kit.fontawesome.com/adcdf23364.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -41,13 +42,10 @@
     </div>
 
     <!-- search css -->
-    <form class="search" action="{% url 'search_results' %}" method="get">
-      
-      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-      <link rel="stylesheet" href="{% static 'css/base.css' %}">
-      <i class="fas fa-search"></i>
-      <input name="q" class="fas fa-search" type="text" autocomplete="off" placeholder="click to search">
-    </form>
+      <form class="form-inline my-2 my-lg-0"action="{% url 'search_results' %}" method="get">
+        <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
 
   </nav><br>
 
